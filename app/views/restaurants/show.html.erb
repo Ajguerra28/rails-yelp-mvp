@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @restaurant.phone_number %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @restaurant.category %>
+</p>
+
+<h3>Reviews:</h3>
+
+<%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item">
+      <p>Message: <%= review.content %></p>
+      Rating: <%= review.rating %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to 'Back', restaurants_path %> |
